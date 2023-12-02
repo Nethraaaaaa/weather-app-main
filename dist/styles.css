@@ -1,0 +1,147 @@
+:root {
+    --offwhite: #e0e0e0;
+    --offgray: #b6b6b6;
+    --darkgray: #333;
+}
+
+html {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+body, h4 {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+#page {
+    background-color: rgb(0,0,0,0.4);
+    height: 100vh;
+}
+
+#page-content {
+    font-size: 1.3rem;
+    color: var(--offwhite);
+    max-width: clamp(600px, 30vw, 800px);
+    height: 100%;
+    margin-left: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.video-bg {
+    z-index: -1;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+footer, a {
+    margin-top: -1.3rem;
+    font-size: 1rem;
+    color: var(--offgray);
+    text-align: center;
+}
+
+
+.weather {
+    display: grid;
+    min-height: 30%;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: row;
+}
+
+.weather div {
+    padding: 0.3rem 0;
+}
+
+h4 {
+    font-size: 1.3rem;
+}
+
+.temp_c,
+.temp_f {
+    grid-column: 1 / 2;
+    font-size: 7rem;
+    font-weight: 600;
+}
+
+input#location-search {
+    color: var(--offwhite);
+    width: 100%;
+    font-size: 1.2rem;
+    background: none;
+    border: 0;
+    transition: border-bottom 500ms ease-in-out;
+}
+
+input#location-search:focus {
+    outline: none;
+}
+
+input#location-search:active {
+    color: var(--offwhite);
+    background: none;
+    border: 0;
+}
+input#location-search:hover {
+    border-bottom: 1px solid var(--offgray);
+   
+}
+
+input[type="checkbox"] + label {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+input[type="checkbox"] + label::before {
+    content: "";
+    width: 3em;
+    height: 1.5em;
+    background-color: var(--offwhite);
+    border-radius: 1em;
+    margin-right: .25em;
+    cursor: pointer;
+    border: 1px darkgray solid;
+    opacity: 0.8;
+
+}
+
+input[type="checkbox"].toggle {
+    opacity: 0;
+    position: absolute;
+}
+
+
+input[type="checkbox"] + label::after {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: .2em;
+    content: "C";
+    width: 1.3em;
+    height: 1.3em;
+    color: var(--darkgray);
+    opacity: 0.7;
+    background-color: white;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: transform 200ms ease-in-out;
+}
+
+input[type="checkbox"]:checked + label::after {
+    color: var(--darkgray);
+    opacity: 0.7;
+    background-color: white;
+    content: "F";
+    transform: translateX(1.4em);
+}
